@@ -1,0 +1,50 @@
+{% extends '../base.html' %}
+{% load static%}
+
+{% block styles %}
+<link href="{% static 'css/category.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block content %}
+
+<div class="container">
+    <h1><br><b>Brand :</b>
+        {{ car.brand }}</h1>
+    <h1><b>Title :</b>
+        {{ car.title }}</h1>
+    <h1><b>Description :</b>
+        {{ car.description }}</h1>
+    <h1><b>Volume :</b>
+        {{ car.volume }}</h1>
+    <h1><b>Price :</b>
+        {{ car.price }}</h1>
+    <h1><b>Release Date :</b>
+        {{ car.release_date }}</h1>
+    <h1><b>Color :</b>
+        {{ car.color }}</h1>
+    <h1><b>Transmission :</b>
+        {{ car.transmission }}</h1>
+    <h1><b>Rul :</b>
+        {{ car.rul }}</h1>
+    <h1><b>Owner :</b>
+        {{ car.owner }}</h1>
+
+
+    <img src="{{ car.image.url }}" alt="" class="img-fluid single-img">
+
+
+    {% if owner %}
+    <div class="row">
+        <div class="col-lg-2">
+            <a href="{% url 'update_car' car.id %}"><button type="button" class="btn btn-danger">UPDATE</button></a>
+        </div>
+        <div class="row">
+            <a href="{% url 'delete_car' car.id %}"><button type="button" class="btn btn-danger">DELETE</button></a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
+
+

@@ -1,0 +1,31 @@
+{% extends '../base.html' %}
+{% load static%}
+
+{% block styles %}
+<link href="{% static 'css/category.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+    <h1>Search Results</h1>
+    {% for car in cars %}
+    <div class="blog-box row">
+        <div class="col-md-4">
+            <div class="post-media crop">
+                <a href="{% url 'read_more' car.id %}">
+                    <img src="{{ car.image.url }}" alt="" class="img-fluid post-img">
+                    <div class="hovereffect"></div>
+                </a>
+            </div>
+        </div>
+        <div class="blog-meta big-meta col-md-8">
+            <h4><a href="{% url 'read_more' car.id %}">{{car.title }}</a></h4>
+            <p>{{ car.car|truncatechars:300 }}</p>
+            <small><a href="{% url 'read_more' car.id %}">{{ car.date_created|date:"d M, Y" }}</a></small>
+            <small><a href="#"> owner {{ car.owner }}</a></small>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock content %}
