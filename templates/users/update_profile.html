@@ -4,14 +4,14 @@
 {% load static %}
 
 {% block styles %}
-<link href="{% static 'css/form.css' %}" rel="stylesheet">
+<link href="{% static 'css/update.css' %}" rel="stylesheet">
 {% endblock styles%}
 
 {% block content%}
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <img src="{{ user.image.url}}">
+            <img src="{{ user.image }}" alt="" class="img-fluid single-img">
 
 
         </div>
@@ -20,7 +20,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
 
-                <button class="'btn btn-success" type="submit">Update</button>
+               <a href="{% url 'update_profile' %}"><button type="button" class="btn btn-danger">UPDATE</button></a>
 
             </form>
             <br>

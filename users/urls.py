@@ -2,7 +2,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 
-from users.views import register, my_account, update_profile
+from users.views import register, update_profile
 
 urlpatterns = [
     path('register/', register, name='register'),
