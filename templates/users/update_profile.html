@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <img src="{{ user.image }}" alt="" class="img-fluid single-img">
+            <img src="{{ user.image.url }}" alt="" class="img-fluid single-img">
 
 
         </div>
@@ -20,7 +20,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
 
-               <a href="{% url 'update_profile' %}"><button type="button" class="btn btn-danger">UPDATE</button></a>
+               <button type="submit" class="btn btn-danger">UPDATE</button>
 
             </form>
             <br>

@@ -29,9 +29,11 @@ def update_profile(request):
         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
+            return redirect('home_page')
     form = ProfileUpdateForm(instance=request.user)
+    context = {
+        'form': form }
 
-    return render(request, 'users/update_profile.html',
-                  context={
-                      'form': form
-                  })
+    return render(request, 'users/update_profile.html',context)
+
+
